@@ -1,4 +1,5 @@
-﻿
+﻿// Puzzle 1
+
 var file = File.ReadAllLines("/home/wamcr/dotnet/AdventOfCode2023_CSharp/Day2/aoc_day_2");
 
 int sumOfPassingIndexes = 0;

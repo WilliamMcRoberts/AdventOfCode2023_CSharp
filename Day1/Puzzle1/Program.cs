@@ -1,4 +1,5 @@
-﻿
+﻿// Puzzle 1
+
 var file = File.ReadAllLines("/home/wamcr/dotnet/AdventOfCode2023_CSharp/Day1/aoc_day_1");
 
 long total = 0;

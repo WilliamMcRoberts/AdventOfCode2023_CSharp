@@ -1,4 +1,5 @@
-﻿
+﻿// Puzzle 2
+
 var file = File.ReadAllLines("/home/wamcr/dotnet/AdventOfCode2023_CSharp/Day1/aoc_day_1");
 
 Dictionary<string, int> dict = new()
