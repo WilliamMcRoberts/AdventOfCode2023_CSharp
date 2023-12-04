@@ -1,31 +1,30 @@
-﻿// Puzzle 1
+﻿var file = File.ReadAllLines("../aoc_day_2");
 
-var file = File.ReadAllLines("../aoc_day_2");
-
-int sumOfPassingIndexes = 0;
-
+var totalSum = 0;
 foreach(var line in file)
 {
+    var totalProduct = 1;
     var gameId = ParseId(line);
     var gameSetStrings = line.Substring(line.IndexOf(':')).Split(";").ToList();
 
-    bool isPassing = true;
+    var maxRed = int.MinValue;
+    var maxGreen = int.MinValue;
+    var maxBlue = int.MinValue;
+
     foreach(var gameSet in gameSetStrings)
     {
-      var gameSetObj = new GameSet(gameId, gameSet);
+      var newGameSet = new GameSet(gameId, gameSet);
 
-      if(!gameSetObj.IsGameSetPassing())
-      {
-        isPassing = false;
-        break;
-      }
+      maxRed = newGameSet.Red == 0 ? maxRed : Math.Max(maxRed, newGameSet.Red);
+      maxGreen = newGameSet.Green == 0 ? maxGreen :  Math.Max(maxGreen, newGameSet.Green);
+      maxBlue =  newGameSet.Blue == 0 ? maxBlue :  Math.Max(maxBlue, newGameSet.Blue);
     }
-    if(isPassing)
-      sumOfPassingIndexes += gameId;
+
+    totalProduct = maxRed * maxGreen * maxBlue;
+    totalSum += totalProduct;
 }
 
-Console.WriteLine($"Sum of passing game id's: {sumOfPassingIndexes}");
-
+Console.WriteLine($"Total Sum of game minimum products: {totalSum}");
 
 static int ParseId( string line)
 {
@@ -61,10 +60,5 @@ class GameSet
             : 0;
 
           return amount;
-    }
-
-    public bool IsGameSetPassing()
-    {
-      return Red <= 12  && Green <= 13 && Blue <= 14;
     }
 }
