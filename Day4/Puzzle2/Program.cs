@@ -1,11 +1,10 @@
-﻿
-var file = File.ReadAllLines("../aoc_day_4");
+﻿var file = File.ReadAllLines("../aoc_day_4");
 
-int total = 0;
+int[] cardCount = Enumerable.Repeat(1, file.Length).ToArray();
 
-foreach(var f in file)
+for(int i = 0; i < file.Length; i++)
 {
-  var sections = f.Split(":");
+  var sections = file[i].Split(":");
   var numbers = sections[1].Split("|");
   var winningNumbers = numbers[0]
     .Split(" ", StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
@@ -19,10 +18,10 @@ foreach(var f in file)
 
   var matchingNumbersCount = winningNumbers.Intersect(myNumbers).Count();
 
-  if(matchingNumbersCount == 0) continue;
-
-   // total += (1 << (matchingNumbersCount - 1));
-   total += (int)Math.Pow(2, matchingNumbersCount - 1);
+  for(int j = 0; j < matchingNumbersCount; j++)
+  {
+    cardCount[i + 1 + j] += cardCount[i];
+  }
 }
 
-Console.WriteLine($"Total: {total}");
+Console.WriteLine($"Total: {cardCount.Sum()}");
