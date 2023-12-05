@@ -1,5 +1,4 @@
-﻿// Puzzle 1
-
+﻿
 var file = File.ReadAllLines("../aoc_day_1");
 
 long total = 0;

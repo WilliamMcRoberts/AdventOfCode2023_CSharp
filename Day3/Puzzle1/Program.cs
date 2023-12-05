@@ -1,5 +1,4 @@
-﻿// var file =  "467..114.. ...*...... ..35..633. ......#... 617*...... .....+.58. ..592..... ......755. ...$.*.... .664.598..".Split(" ").ToArray();
-
+﻿
 var file = File.ReadAllLines("../aoc_day_3");
 
 var width = file[0].Length;

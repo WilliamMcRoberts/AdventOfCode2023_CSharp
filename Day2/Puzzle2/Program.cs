@@ -1,4 +1,5 @@
-﻿var file = File.ReadAllLines("../aoc_day_2");
+﻿
+var file = File.ReadAllLines("../aoc_day_2");
 
 var totalSum = 0;
 foreach(var line in file)

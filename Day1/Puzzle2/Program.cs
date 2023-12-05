@@ -1,5 +1,4 @@
-﻿// Puzzle 2
-
+﻿
 var file = File.ReadAllLines("../aoc_day_1");
 
 Dictionary<string, int> dict = new()
