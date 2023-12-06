@@ -16,12 +16,8 @@ for(int i = 0; i < file.Length; i++)
     .Select(int.Parse)
     .ToArray();
 
-  var matchingNumbersCount = winningNumbers.Intersect(myNumbers).Count();
-
-  for(int j = 0; j < matchingNumbersCount; j++)
-  {
+  while(--winningNumbers.Intersect(myNumbers).Count() >= 0)
     cardCount[i + 1 + j] += cardCount[i];
-  }
 }
 
 Console.WriteLine($"Total: {cardCount.Sum()}");
